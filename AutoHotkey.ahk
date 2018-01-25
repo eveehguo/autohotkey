@@ -29,6 +29,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #Include %A_ScriptDir%\Hotstrings.ahk
 #Include %A_ScriptDir%\HTMLHotstrings.ahk
+#Include %A_ScriptDir%\ExplorerPathLib.ahk
 
 ;===============================================================================
 ; HOTKEYS
@@ -38,11 +39,16 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #S:: Run, "C:\WINDOWS\system32\SnippingTool.exe"
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
-#K:: Run, "cmd"
 #N:: Run, "chrome.exe" --profile-directory="Default"
 
-Launch_App2:: Run, % "subl.exe " . Explorer_GetSelection()
-+Launch_App2:: Run, % "subl.exe -n " . Explorer_GetSelection()
+#C::
+#K::
+	Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
+return
+
+Launch_App2:: Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
+!Launch_App2:: Run, % "subl.exe " . Explorer_GetSelected()
++Launch_App2:: Run, % "subl.exe -n"
 
 #Launch_App2:: Run, calc.exe
 
@@ -127,20 +133,6 @@ return
 ;===============================================================================
 ; UTILITY FUNCTIONS
 ;
-
-Explorer_GetSelection(hwnd="") {
-	hwnd := hwnd ? hwnd : WinExist("A")
-	WinGetClass class, ahk_id %hwnd%
-	if (class="CabinetWClass" or class="ExploreWClass" or class="Progman")
-		for window in ComObjCreate("Shell.Application").Windows
-			if (window.hwnd==hwnd)
-    sel := window.Document.SelectedItems
-	for item in sel {
-		path .= """" . item.path . """ "
-	}
-	path := RTrim(path, " ")
-	return path
-}
 
 RunSingleInstance(Path, WinTitle, DetectHidden:="Off") {
 	DetectHiddenWindows, %DetectHidden%
