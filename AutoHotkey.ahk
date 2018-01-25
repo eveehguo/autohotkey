@@ -39,6 +39,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
 #K:: Run, "cmd"
+#N:: Run, "chrome.exe" --profile-directory="Default"
 
 Launch_App2:: Run, % "subl.exe " . Explorer_GetSelection()
 +Launch_App2:: Run, % "subl.exe -n " . Explorer_GetSelection()
@@ -87,7 +88,7 @@ return
 
 
 ;==Ctrl-Alt-PgUp to show On-Screen Colemak==*
-^!PgUp:: Run, "C:\Users\Ethan\Documents\On-Screen Colemak.ahk"
+^!PgUp:: Run, "On-Screen Colemak.ahk"
 
 
 ;===============================================================================
