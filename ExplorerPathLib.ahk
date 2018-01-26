@@ -35,7 +35,7 @@ Explorer_GetSelectedOrPath(hwnd="")
 Explorer_GetPath(hwnd="")
 {
 	if !(window := Explorer_GetWindow(hwnd))
-		return ErrorLevel := "ERROR"
+		return
 	if (window="desktop")
 		return A_Desktop
 	path := window.LocationURL
@@ -80,7 +80,7 @@ Explorer_GetWindow(hwnd="")
 Explorer_Get(hwnd="",selection=false)
 {
 	if !(window := Explorer_GetWindow(hwnd))
-		return ErrorLevel := "ERROR"
+		return
 	if (window="desktop")
 	{
 		ControlGet, hwWindow, HWND,, SysListView321, ahk_class Progman
@@ -92,7 +92,7 @@ Explorer_Get(hwnd="",selection=false)
 		{
 			path := base "\" A_LoopField
 			IfExist %path% ; ignore special icons like Computer (at least for now)
-				ret .= path "`n"
+				ret .= """" . path . """ "
 		}
 	}
 	else
