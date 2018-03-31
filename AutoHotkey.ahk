@@ -60,7 +60,7 @@ return
 
 #F9::
 Launch_Media::
-	RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Spotify\Spotify.exe", "ahk_class SpotifyMainWindow", "On")
+	RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Spotify\Spotify.exe", "ahk_exe Spotify.exe")
 return
 
 
@@ -135,19 +135,26 @@ return
 ; UTILITY FUNCTIONS
 ;
 
-RunSingleInstance(Path, WinTitle, DetectHidden:="Off") {
+RunAndFocus(Command, WinSelector) {
+	Run, %Command%
+
+	WinWait, %WinSelector%
+	WinActivate
+}
+
+RunSingleInstance(Command, WinSelector, DetectHidden:="Off") {
 	DetectHiddenWindows, %DetectHidden%
-	if WinExist(WinTitle) {
+	if WinExist(WinSelector) {
 		WinActivate
 	} else {
-		Run, %Path%
+		RunAndFocus(Command, WinSelector)
 	}
 }
 
 
-ShowToolTip(Text) {
+ShowToolTip(Text, Duration:=3000) {
 	ToolTip, %Text%
-	SetTimer, RemoveToolTip, 2000
+	SetTimer, RemoveToolTip, %Duration%
 }
 
 RemoveToolTip:
