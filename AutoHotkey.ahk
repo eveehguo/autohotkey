@@ -27,15 +27,19 @@ SetTitleMatchMode 1
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
+;===============================================================================
+; INCLUDES
+;
+
 #Include %A_ScriptDir%\Hotstrings.ahk
 #Include %A_ScriptDir%\HTMLHotstrings.ahk
 #Include %A_ScriptDir%\ExplorerPathLib.ahk
 
+
 ;===============================================================================
-; HOTKEYS
+; SHORTCUTS
 ;
 
-;==SPECIAL KEYS==
 #S:: Run, "C:\WINDOWS\system32\SnippingTool.exe"
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
@@ -47,6 +51,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
 return
 
+;==SPECIAL KEYS==
 Launch_App2:: Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
 !Launch_App2:: Run, % "subl.exe " . Explorer_GetSelected()
 +Launch_App2:: Run, % "subl.exe -n"
@@ -63,10 +68,15 @@ Launch_Media::
 	RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Spotify\Spotify.exe", "ahk_exe Spotify.exe")
 return
 
-
+;==MEDIA KEYS (CLONE ON WIN+KEY)==
 #F10:: Send, {Media_Prev}
 #F11:: Send, {Media_Play_Pause}
 #F12:: Send, {Media_Next}
+
+
+;===============================================================================
+; UTILITIES
+;
 
 ;==ALT CLIPBOARD==
 ^!C::
