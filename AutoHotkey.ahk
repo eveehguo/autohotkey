@@ -44,7 +44,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
 #N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default"
-+#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1"
++#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --incognito
 
 #C::
 #K::
