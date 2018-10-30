@@ -47,9 +47,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 +#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --incognito
 #C:: Run, "C:\Users\Ethan\Desktop\Calendar.lnk"
 
-#K::
-	Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
-return
+#K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
+#B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
 
 ;==SPECIAL KEYS==
 Launch_App2:: Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
