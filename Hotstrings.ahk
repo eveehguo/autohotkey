@@ -5,16 +5,20 @@ Docs:
 
 */
 
+#Hotstring *
+
 ::@@::ethguo@gmail.com
 ::``@::ethguo@gmail.com
 
 ::``shrug::¯\_(ツ)_/¯
 ::``point::(☞ ͡° ͜ʖ ͡°)☞
 
-#Hotstring * ?
+#Hotstring ?
 
 ::``tm::™
 ::``--::— ; em dash
+::``->::→
+::``<-::←
 ::``frac/::⁄
 
 #Hotstring C
@@ -60,7 +64,6 @@ Docs:
 ::``^x::ˣ
 ::``^y::ʸ
 ::``^z::ᶻ
-
 
 ::``_0::₀
 ::``_1::₁
