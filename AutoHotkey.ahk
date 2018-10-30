@@ -97,6 +97,52 @@ $#F1:: Send, {F1}
 +#Down:: WinMinimize, A
 
 
+;==RCtrl-Arrow Keys for PgUp/PgDn/Home/End (alternative to native Fn+Arrow Keys)
+>^Up:: Send, {PgUp}
+>^Down:: Send, {PgDn}
+>^Left:: Send, {Home}
+>^Right:: Send, {End}
+
+<^>^Up:: Send, ^{PgUp}
+<^>^Down:: Send, ^{PgDn}
+<^>^Left:: Send, ^{Home}
+<^>^Right:: Send, ^{End}
+
++>^Up:: Send, +{PgUp}
++>^Down:: Send, +{PgDn}
++>^Left:: Send, +{Home}
++>^Right:: Send, +{End}
+
+!>^Up:: Send, !{PgUp}
+!>^Down:: Send, !{PgDn}
+!>^Left:: Send, !{Home}
+!>^Right:: Send, !{End}
+
+<^+>^Up:: Send, ^+{PgUp}
+<^+>^Down:: Send, ^+{PgDn}
+<^+>^Left:: Send, ^+{Home}
+<^+>^Right:: Send, ^+{End}
+
+<^!>^Up:: Send, ^!{PgUp}
+<^!>^Down:: Send, ^!{PgDn}
+<^!>^Left:: Send, ^!{Home}
+<^!>^Right:: Send, ^!{End}
+
++!>^Up:: Send, +!{PgUp}
++!>^Down:: Send, +!{PgDn}
++!>^Left:: Send, +!{Home}
++!>^Right:: Send, +!{End}
+
+<^+!>^Up:: Send, ^+!{PgUp}
+<^+!>^Down:: Send, ^+!{PgDn}
+<^+!>^Left:: Send, ^+!{Home}
+<^+!>^Right:: Send, ^+!{End}
+
+; AppsKey is Fn+RCtrl, so consider it a ^ modifier
+AppsKey:: Send, {Ctrl down}
+AppsKey Up:: Send, {Ctrl up}
+
+
 ;===============================================================================
 ; UTILITIES
 ;
