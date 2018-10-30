@@ -43,8 +43,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #S:: Run, "C:\WINDOWS\system32\SnippingTool.exe"
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
-#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default"
-+#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --incognito
+#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
++#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --incognito
 
 #C::
 #K::
