@@ -50,16 +50,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
 #B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
 
-;==SPECIAL KEYS==
-Launch_App2:: Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
-!Launch_App2:: Run, % "subl.exe " . Explorer_GetSelected()
-+Launch_App2:: Run, % "subl.exe -n"
-
-#Launch_App2:: Run, calc.exe
-
-#F2::
-Launch_Mail::
-	RunSingleInstance("C:\Users\Ethan\Desktop\Inbox by Gmail.lnk", "Inbox – ahk_class Chrome_WidgetWin_1")
+;==SUBLIME==
+; Open selected file or folder in new window
+#T::
+#Insert::
+	Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
+return
+; Add selected file to existing window
++#T::
+#+Insert::
+	Run, % "subl.exe " . Explorer_GetSelected()
+return
+; Create new window
+^#T::
+#^Insert::
+	Run, % "subl.exe -n"
 return
 
 #F9::
