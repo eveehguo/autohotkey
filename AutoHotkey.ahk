@@ -86,6 +86,17 @@ $#F1:: Send, {F1}
 ; #F12:: Send, {Media_Next}
 
 
+;==WINDOWS==
+; Disable Win-M (Show desktop)
+#M:: return
+
+; Shift-Win-Up to Maximize
++#Up:: WinMaximize, A
+
+; Shift-Win-Down to Minimize
++#Down:: WinMinimize, A
+
+
 ;===============================================================================
 ; UTILITIES
 ;
