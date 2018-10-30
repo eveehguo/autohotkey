@@ -67,15 +67,23 @@ return
 	Run, % "subl.exe -n"
 return
 
-#F9::
+;==MEDIA==
+#F7::
 Launch_Media::
 	RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Spotify\Spotify.exe", "ahk_exe Spotify.exe")
 return
 
-;==MEDIA KEYS (CLONE ON WIN+KEY)==
-#F10:: Send, {Media_Prev}
-#F11:: Send, {Media_Play_Pause}
-#F12:: Send, {Media_Next}
+
+;===============================================================================
+; KEY REMAPPINGS
+;
+
+;==MEDIA KEYS==
+$F1:: Send, {Volume_Mute}
+$#F1:: Send, {F1}
+; #F10:: Send, {Media_Prev}
+; #F11:: Send, {Media_Play_Pause}
+; #F12:: Send, {Media_Next}
 
 
 ;===============================================================================
