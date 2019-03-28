@@ -40,12 +40,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; SHORTCUTS
 ;
 
-#S:: Run, "C:\WINDOWS\system32\SnippingTool.exe"
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
 #N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 +#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --incognito
-#C:: Run, "C:\Users\Ethan\Desktop\Calendar.lnk"
+#C:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar.lnk"
++#C:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar - ethan@hackthenorth.com.lnk"
+
+#S:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies\Slack.lnk"
 
 #K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
 #B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
