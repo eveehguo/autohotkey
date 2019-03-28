@@ -130,5 +130,7 @@ Docs:
 ::``exists::∃
 ::``in::∈
 ::``notin::∉
+::``implies::⇒
+::``iff::⇔
 
 #Hotstring *0 ?0 C0
