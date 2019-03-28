@@ -274,23 +274,6 @@ return
 ;==ABORT==
 ; !F12:: pause, toggle
 
-;==Anti-Anti-Idle==
-; moveMouseTimerOn = false;
-; !F9::
-; 	if moveMouseTimerOn {
-; 		SetTimer, MoveMouse, Off
-; 		ShowToolTip("MoveMouse timer off.")
-; 	} else {
-; 		SetTimer, MoveMouse, 1000 ; Run MoveMouse every 1 second
-; 		ShowToolTip("MoveMouse timer on.")
-; 	}
-; 	moveMouseTimerOn := !moveMouseTimerOn
-; return 
-
-; MoveMouse:
-;     MouseMove, 2, 0, 2, R  ; Move the mouse two pixels to the right
-;     MouseMove, -2, 0, 2, R ; Move the mouse back two pixels
-; return
 
 ;==TILDE FOR BACKSPACE==
 ; $`:: Backspace
