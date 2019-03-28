@@ -44,8 +44,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #J:: Run, "C:\Users\Ethan\Downloads"
 #N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 +#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --incognito
-#C:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar.lnk"
-+#C:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar - ethan@hackthenorth.com.lnk"
+#C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar.lnk", "Google Calendar")
++#C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar - ethan@hackthenorth.com.lnk", "Techyon - Calendar")
 
 #S:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies\Slack.lnk"
 
