@@ -175,9 +175,17 @@ return
 #MaxThreadsPerHotkey 1
 
 
-;==Ctrl-Alt-PgUp to show On-Screen Colemak==*
-^!PgUp:: Run, "On-Screen Colemak.ahk"
+;===============================================================================
+; COLEMAK
+;
 
+;==Ctrl-Alt-PgUp to enable QWERTY to Colemak and show On-Screen Colemak==*
+^!PgUp::
+	Run, "On-Screen Colemak.ahk"
+	Run, "QWERTY to Colemak.ahk"
+return
+
+; Ctrl-Alt-PgDn disables both of these scripts.
 
 ;===============================================================================
 ; APPLICATION SPECIFIC
@@ -272,10 +280,4 @@ return
 
 
 ;==ABORT==
-; !F12:: pause, toggle
-
-
-;==TILDE FOR BACKSPACE==
-; $`:: Backspace
-; $+`:: send {~}
-; $!`:: send ``
+^!F12:: ExitApp
