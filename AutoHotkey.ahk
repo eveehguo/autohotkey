@@ -32,6 +32,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Include %A_ScriptDir%\Hotstrings.ahk
 #Include %A_ScriptDir%\HTMLHotstrings.ahk
 #Include %A_ScriptDir%\ExplorerPathLib.ahk
+#Include %A_ScriptDir%\Gaming.ahk
+; #Include %A_ScriptDir%\DisableAltGr.ahk
 
 
 ;===============================================================================

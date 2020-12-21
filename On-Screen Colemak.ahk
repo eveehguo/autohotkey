@@ -74,7 +74,7 @@ kS = 1	; Shift state (1 = normal, 2 = Shift, 3 = AltGr, 4 = Shift+AltGr)
 
 B%kS%_R1 := "``"			; The beginning of the row
 M%kS%_R1 := "1234567890-="	; The middle part of row
-E%kS%_R1 := "Bck"		; The end of the row
+E%kS%_R1 := "Bck"			; The end of the row
 
 B%kS%_R2 := "Tab"
 M%kS%_R2 := "QWFPGJLUY`;[]\"
@@ -86,7 +86,17 @@ E%kS%_R3 := "Enter"
 
 B%kS%_R4 := "Shift   "		; Adding spaces widens the key to look more real
 M%kS%_R4 := "ZXCVBKM`,./"
-E%kS%_R4 := "       Shift"
+; E%kS%_R4 := "       Shift"
+
+SysGet, k_numMonitors, MonitorCount
+
+if (k_numMonitors = 2) {
+	E%kS%_R4 := "       Shift"
+}
+else {
+	E%kS%_R4 := "     Shift"
+}
+
 
 Loop 4 {
 k_AddRow(B%kS%_R%A_Index%,M%kS%_R%A_Index%,E%kS%_R%A_Index%)
