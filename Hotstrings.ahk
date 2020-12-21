@@ -19,6 +19,7 @@ Docs:
 ::``--::— ; em dash
 ::``->::→
 ::``<-::←
+::``check::✔
 ::``frac/::⁄
 
 #Hotstring C
@@ -114,6 +115,13 @@ Docs:
 ::``1/9::⅑
 ::``1/10::⅒
 
+::``up::↑
+::``down::↓
+
+::``inter::∩
+::``union::∪
+
+
 ;==LaTeX==
 ; See https://github.com/joom/latex-unicoder.vim/blob/master/autoload/unicoder.vim for more
 ::``approx::≈
@@ -128,9 +136,29 @@ Docs:
 ::``partial::∂
 ::``forall::∀
 ::``exists::∃
-::``in::∈
+::``in;::∈
 ::``notin::∉
 ::``implies::⇒
 ::``iff::⇔
+::``subset;::⊂
+::``supset;::⊃
+::``nsubset;::⊄
+::``nsupset;::⊅
+::``subseteq::⊆
+::``supseteq::⊇
+::``nsubseteq::⊈
+::``nsupseteq::⊉
+::``subsetneq::⊊
+::``supsetneq::⊋
+::``wedge::∧
+::``vee::∨
+::``cap::∩
+::``cup::∪
+::``bigwedge::⋀
+::``bigvee::⋁
+::``bigcap::⋂
+::``bigcup::⋃
+
+
 
 #Hotstring *0 ?0 C0
