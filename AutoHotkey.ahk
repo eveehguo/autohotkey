@@ -4,8 +4,6 @@ Hotkeys:
   Win-S: Open Snipping Tool
   Win-Shift-D: Open My Documents
   Win-J: Open Downloads
-  Win-J: Open Downloads
-
 
 Modifiers:
   ^ : Ctrl
@@ -23,7 +21,7 @@ Docs:
 #NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 #SingleInstance force
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
-SetTitleMatchMode 1
+SetTitleMatchMode 1 ; Window's title must start with the specified WinTitle.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
@@ -42,12 +40,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #D:: Run, %A_MyDocuments%
 #J:: Run, "C:\Users\Ethan\Downloads"
-#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-+#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --incognito
-#C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar.lnk", "Google Calendar")
-+#C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Calendar - ethan@hackthenorth.com.lnk", "Techyon - Calendar")
+#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default"
++#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --incognito
+#C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Google Calendar.lnk", "Google Calendar")
++#C:: Run, "https://calendar.google.com/calendar/b/ethan@hackthenorth.com/r"
 
-#S:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies\Slack.lnk"
+#S:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
 
 #K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
 #B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
@@ -80,9 +78,11 @@ return
 ; KEY REMAPPINGS
 ;
 
+Launch_App2::F13
+
 ;==MEDIA KEYS==
-$F1:: Send, {Volume_Mute}
-$#F1:: Send, {F1}
+; $F1:: Send, {Volume_Mute}
+; $#F1:: Send, {F1}
 ; #F10:: Send, {Media_Prev}
 ; #F11:: Send, {Media_Play_Pause}
 ; #F12:: Send, {Media_Next}
@@ -149,20 +149,20 @@ AppsKey Up:: Send, {Ctrl up}
 ; UTILITIES
 ;
 
-;==ALT CLIPBOARD==
-^!C::
-	tempClipboard := clipboardAll
-	clipboard := altClipboard
-	altClipboard := tempClipboard
-	ShowToolTip("Clipboard Swapped")
-return
+; ;==ALT CLIPBOARD==
+; <^!C::
+; 	tempClipboard := clipboardAll
+; 	clipboard := altClipboard
+; 	altClipboard := tempClipboard
+; 	ShowToolTip("Clipboard Swapped")
+; return
 
-;==CLEAR CLIPBOARDS==
-^!#C::
-	altClipboard =
-	clipboard =
-	ShowToolTip("Clipboards Cleared")
-return
+; ;==CLEAR CLIPBOARDS==
+; ^!#C::
+; 	altClipboard =
+; 	clipboard =
+; 	ShowToolTip("Clipboards Cleared")
+; return
 
 ;==AUTOCLICK==
 #MaxThreadsPerHotkey 2
@@ -182,7 +182,7 @@ return
 ;==Ctrl-Alt-PgUp to enable QWERTY to Colemak and show On-Screen Colemak==*
 ^!PgUp::
 	Run, "On-Screen Colemak.ahk"
-	Run, "QWERTY to Colemak.ahk"
+	; Run, "QWERTY to Colemak.ahk"
 return
 
 ; Ctrl-Alt-PgDn disables both of these scripts.
@@ -204,7 +204,7 @@ return
 ;===============================================================================
 ; WINDOWS EXPLORER
 ;
-#IfWinActive, ahk_class CabinetWClass
+#IfWinActive ahk_class CabinetWClass
 
 ;==Middle mouse for Alt-Up (move up one level)==
 ~MButton:: Send !{Up} 
