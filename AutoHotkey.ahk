@@ -45,7 +45,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 +#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --incognito
 #C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Google Calendar.lnk", "Google Calendar")
 +#C:: Run, "https://calendar.google.com/calendar/b/ethan@hackthenorth.com/r"
-#M:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" "https://messenger.com" --profile-directory="Default"
+#M:: Run, "C:\Users\Ethan\Desktop\Messenger.lnk"
 
 #S:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
 #D:: Run, "C:\Users\Ethan\Desktop\Discord.lnk"
