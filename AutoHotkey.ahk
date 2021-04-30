@@ -53,6 +53,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
 #B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
 
+#Y:: Run, "Bluetooth Settings.url"
+
 ;==SUBLIME==
 ; Open selected file or folder in new window
 #T::
