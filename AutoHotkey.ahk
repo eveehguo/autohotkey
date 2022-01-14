@@ -41,41 +41,43 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
 #J:: Run, "C:\Users\Ethan\Downloads"
-#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default"
-+#N:: Run, "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --incognito
-#C:: RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Chrome Apps\Google Calendar.lnk", "Google Calendar")
-+#C:: Run, "https://calendar.google.com/calendar/b/ethan@hackthenorth.com/r"
-#M:: Run, "C:\Users\Ethan\Desktop\Messenger.lnk"
+#N:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default"
++#N:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --incognito
+^#N:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1"
+^+#N:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1" --incognito
 
+#C:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --app=https://calendar.google.com/calendar/u/0/r
++#C:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Default" --app=https://calendar.google.com/calendar/b/ethan@hackthenorth.com/r
+^#C:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1" --app=https://outlook.office.com/calendar/view/workweek
+^#O:: Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1" --app=https://outlook.office.com/mail/
+
+#M:: Run, "C:\Users\Ethan\Desktop\Messenger.lnk"
 #S:: Run, "C:\Users\Ethan\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Slack Technologies Inc\Slack.lnk"
 #D:: Run, "C:\Users\Ethan\Desktop\Discord.lnk"
 
-#K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
-#B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
+#A:: Run, "C:\Users\Ethan\Desktop\Microsoft Teams.lnk"
+
+#K:: Run, % "wt nt -d " . Explorer_GetPath()
+#B:: Run, % "wt nt -p Ubuntu -d " . Explorer_GetPath()
+
++#K:: Run, % "cmd /K @cd " . Explorer_GetPath() . " && cmd"
++#B:: Run, "C:\Users\Ethan\Desktop\Ubuntu.lnk"
 
 #Y:: Run, "Bluetooth Settings.url"
 
 ;==SUBLIME==
 ; Open selected file or folder in new window
-#T::
-#Insert::
-	Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
-return
+#T:: Run, % "subl.exe -n " . Explorer_GetSelectedOrPath()
 ; Add selected file to existing window
-+#T::
-#+Insert::
-	Run, % "subl.exe " . Explorer_GetSelected()
-return
++#T:: Run, % "subl.exe " . Explorer_GetSelected()
 ; Create new window
-^#T::
-#^Insert::
-	Run, % "subl.exe -n"
-return
+^#T:: Run, % "subl.exe -n"
 
 ;==MEDIA==
 #F7::
+#F9::
 Launch_Media::
-	RunSingleInstance("C:\Users\Ethan\AppData\Roaming\Spotify\Spotify.exe", "ahk_exe Spotify.exe")
+	Run, "C:\Users\Ethan\Desktop\Spotify.lnk"
 return
 
 
@@ -88,9 +90,9 @@ Launch_App2::F13
 ;==MEDIA KEYS==
 ; $F1:: Send, {Volume_Mute}
 ; $#F1:: Send, {F1}
-; #F10:: Send, {Media_Prev}
-; #F11:: Send, {Media_Play_Pause}
-; #F12:: Send, {Media_Next}
+#F10:: Send, {Media_Prev}
+#F11:: Send, {Media_Play_Pause}
+#F12:: Send, {Media_Next}
 
 
 ;==WINDOWS==
